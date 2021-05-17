@@ -15,7 +15,7 @@ def ids():
 		print(str(i) + '. sent')
 		i+=1 
 
-server = smtplib.SMTP("smtp.gmail.com", '587')
+server = smtplib.SMTP("smtp.gmail.com", '587')  #----------587 is the port number for you it might changes
 server.starttls()
 server.login( "<sender email id>", "<password>") #--------sender email id and password
 from_ = "<sender name>" #---------sender name
@@ -31,7 +31,7 @@ with open('<path of mail template file like txt >') as f: #-------mail template
 with open(<path of add_attachment file>, 'rb') as p: #---------attachment file
 	file_data = p.read()
 	file_name = p.name
-	msg.add_attachment(file_data, maintype = "application" , subtype = 'pdf' , filename = file_name)
+	msg.add_attachment(file_data, maintype = "application" , subtype = '<extension of the attachment file>' , filename = file_name) #-------enter the extension for the attached file
 
 ids()
 print('done')
